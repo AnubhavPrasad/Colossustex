@@ -1,24 +1,18 @@
 package com.example.colossustex.SpinningMillOfIndia
 
-import android.content.Context
-import android.media.Image
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.colossustex.R
 import com.google.firebase.database.*
-import org.w3c.dom.Text
 
 class SpinningMillOfIndia : Fragment() {
 
@@ -32,10 +26,13 @@ class SpinningMillOfIndia : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var lay = inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
+        val lay = inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
         val toolbar =
             lay.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_spinning_mills_in_india)
         val cotton = lay.findViewById<TextView>(R.id.textView_cotton)
+        cotton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_spinningMillOfIndia_to_cottonFragment)
+        }
         val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
         val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
         val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
@@ -56,8 +53,6 @@ class SpinningMillOfIndia : Fragment() {
             it.findNavController().navigateUp()
         }
 
-
-
         recyclerView = lay.findViewById(R.id.recylerView_spinning_mills_of_india)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -66,17 +61,17 @@ class SpinningMillOfIndia : Fragment() {
         mDb = FirebaseDatabase.getInstance().reference.child("postsSpinningMillsOfIndia")
 
         mDb.addValueEventListener(
-            object : ValueEventListener{
+            object : ValueEventListener {
 
                 override fun onCancelled(p0: DatabaseError) {}
 
                 override fun onDataChange(data: DataSnapshot) {
                     posts.clear()
-                    for(dataSnapshot in data.children){
+                    for (dataSnapshot in data.children) {
                         val p = dataSnapshot.getValue(post::class.java)
                         posts.add(p!!)
                     }
-                    adapter = PostAdapter(context!!,posts)
+                    adapter = PostAdapter(context!!, posts)
                     recyclerView.adapter = adapter
                 }
             }
