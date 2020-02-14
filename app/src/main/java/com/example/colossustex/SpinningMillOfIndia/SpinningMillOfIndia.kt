@@ -35,6 +35,9 @@ class SpinningMillOfIndia : Fragment() {
         }
         val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
         val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
+        viscose.setOnClickListener {
+            it.findNavController().navigate(R.id.action_spinningMillOfIndia_to_viscoseFragment)
+        }
         val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
         val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
         val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)

@@ -7,15 +7,16 @@
     android:layout_width="match_parent"
     android:background="#FFFFFF"
     android:layout_height="match_parent"
-    tools:context=".SpinningMillOfIndia.SpinningMillUpper.CottonFragment" >
+    tools:context=".SpinningMillOfIndia.Cotton.CottonFragment" >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
         app:title="Cotton"
         app:titleTextColor="#FAF6F6"
         android:background="@color/colorPrimary"

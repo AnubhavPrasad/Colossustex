@@ -1,7 +1,6 @@
-package com.example.colossustex.SpinningMillOfIndia.SpinningMillUpper
+package com.example.colossustex.SpinningMillOfIndia.Cotton
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,14 +18,14 @@ import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderLayout
 
 class CottonAdapter(val datalist: MutableList<Data>) :
-    RecyclerView.Adapter<CottonAdapter.MyViewHolder>() { //Adapter for RecyclerView
+    RecyclerView.Adapter<CottonAdapter.MyViewHolder>() {
 
-    class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) { //ViewHolder
+    class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
         val image = itemview.findViewById<ImageView>(R.id.cotton_image)
         val text = itemview.findViewById<TextView>(R.id.cotton_text)
         val sliderLayout = itemview.findViewById<SliderLayout>(R.id.imageSlider)
 
-        init {                          //initializing SliderView
+        init {
             Log.i("Adapter", "visible2")
             sliderLayout.visibility = View.VISIBLE
             sliderLayout.setIndicatorAnimation(IndicatorAnimations.SWAP) //set indicator animation by using 	 				SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
@@ -52,8 +51,8 @@ class CottonAdapter(val datalist: MutableList<Data>) :
                 sliderLayout.addSliderView(sliderView)
 
             }
-        }
-    }
+        }      // For SliderView
+    }   //ViewHolder
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.cotton_item, parent, false)
@@ -84,4 +83,4 @@ class CottonAdapter(val datalist: MutableList<Data>) :
     }
 
 
-}
+}   //Adapter for RecyclerView
