@@ -9,10 +9,19 @@
         <item name="colorPrimaryDark">#3c4cdd</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="viscosetext">
         <item name="android:padding">10dp</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

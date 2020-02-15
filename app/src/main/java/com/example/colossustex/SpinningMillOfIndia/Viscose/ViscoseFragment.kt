@@ -11,16 +11,15 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
-import com.example.colossustex.databinding.FragmentViscoseBinding
+import com.example.colossustex.databinding.ViscoseFragment1Binding
 import com.example.dialogcustom.MyAdapter
 
 class ViscoseFragment : Fragment() {
     lateinit var list: MutableList<Int>
-    lateinit var binding: FragmentViscoseBinding
+    lateinit var binding: ViscoseFragment1Binding
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,17 +29,8 @@ class ViscoseFragment : Fragment() {
         for (i in 1..200) {
             list.add(i)
         }
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_viscose, container, false)
-        binding.toolbar.inflateMenu(R.menu.cotton_menu)
-        binding.toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.home_id -> findNavController().navigate(R.id.action_viscoseFragment_to_homePage)
-            }
-            true
-        }
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
+        binding = DataBindingUtil.inflate(inflater, R.layout.viscose_fragment1, container, false)
+
         binding.spinnerViscose.setOnClickListener {
 
             showdialog()

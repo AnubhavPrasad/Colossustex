@@ -1,5 +1,6 @@
 package com.example.colossustex.SpinningMillOfIndia
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.colossustex.SpinningMillOfIndia.Viscose.ViscoseActivity
 import com.example.colossustex.R
 import com.google.firebase.database.*
 
@@ -36,7 +38,8 @@ class SpinningMillOfIndia : Fragment() {
         val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
         val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
         viscose.setOnClickListener {
-            it.findNavController().navigate(R.id.action_spinningMillOfIndia_to_viscoseFragment)
+            startActivity(Intent(context,
+                ViscoseActivity::class.java))
         }
         val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
         val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
