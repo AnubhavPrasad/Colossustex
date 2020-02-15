@@ -1,7 +1,12 @@
 package com.example.colossustex.SpinningMillOfIndia.Cotton
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -16,6 +21,8 @@ import com.google.firebase.database.ValueEventListener
 class CottonFragment : Fragment() {
     lateinit var datalist: MutableList<Data>
     lateinit var binding: FragmentCottonBinding
+    lateinit var search: SearchView
+    lateinit var datalist1: MutableList<Data>
     lateinit var firebaseDatabase: FirebaseDatabase
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,9 +62,40 @@ class CottonFragment : Fragment() {
             }
 
         })
+        val menuitem = binding.toolbar.menu.findItem(R.id.search)
+        val searchView = menuitem.actionView as androidx.appcompat.widget.SearchView
+        searchView.setOnQueryTextListener(object :
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchView.clearFocus()
+                onQueryTextChange(query)
+                return false
+            }
+
+            @SuppressLint("DefaultLocale")
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val userinput = newText?.toLowerCase()?.trim()
+
+                val newlist = mutableListOf<Data>()
+                for (data in datalist) {
+                    if (data.textdesc.toLowerCase().trim().contains(userinput!!)) {
+                        newlist.add(data)
+                    }
+                }
+                if(newlist.isEmpty()){
+                    binding.recyclerId.visibility=View.GONE
+                    binding.resultsId.visibility=View.VISIBLE
+                }
+                else {
+                    binding.resultsId.visibility=View.GONE
+                    binding.recyclerId.visibility=View.VISIBLE
+                    binding.recyclerId.adapter = CottonAdapter(newlist)
+                }
+                return true
+            }
+        })
         return binding.root
-
     }
-
 
 }

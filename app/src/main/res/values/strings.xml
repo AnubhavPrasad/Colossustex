@@ -24,5 +24,6 @@
     <string name="choose">--Select Count--</string>
     <string name="single">Single</string>
     <string name="double_text">Double</string>
+    <string name="no_results">NO RESULTS</string>
 
 </resources>

@@ -17,9 +17,8 @@ import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderLayout
 
-class CottonAdapter(val datalist: MutableList<Data>) :
+class CottonAdapter(var list: MutableList<Data>) :
     RecyclerView.Adapter<CottonAdapter.MyViewHolder>() {
-
     class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
         val image = itemview.findViewById<ImageView>(R.id.cotton_image)
         val text = itemview.findViewById<TextView>(R.id.cotton_text)
@@ -61,14 +60,14 @@ class CottonAdapter(val datalist: MutableList<Data>) :
     }
 
     override fun getItemCount(): Int {
-        return datalist.size
+        return list.size
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.text.text = datalist[position].textdesc
+        holder.text.text = list[position].textdesc
         Glide.with(holder.itemView)
-            .load(datalist[position].imageurl)
+            .load(list[position].imageurl)
             .apply(RequestOptions.circleCropTransform())
             .centerCrop()
             .into(holder.image)
@@ -81,6 +80,5 @@ class CottonAdapter(val datalist: MutableList<Data>) :
             Toast.makeText(holder.itemView.context, "Hello", Toast.LENGTH_SHORT).show()
         }
     }
-
 
 }   //Adapter for RecyclerView
