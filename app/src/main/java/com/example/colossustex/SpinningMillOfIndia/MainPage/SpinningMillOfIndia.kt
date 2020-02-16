@@ -1,4 +1,4 @@
-package com.example.colossustex.SpinningMillOfIndia
+package com.example.colossustex.SpinningMillOfIndia.MainPage
 
 import android.content.Intent
 import android.os.Bundle
@@ -77,7 +77,11 @@ class SpinningMillOfIndia : Fragment() {
                         val p = dataSnapshot.getValue(post::class.java)
                         posts.add(p!!)
                     }
-                    adapter = PostAdapter(context!!, posts)
+                    adapter =
+                        PostAdapter(
+                            context!!,
+                            posts
+                        )
                     recyclerView.adapter = adapter
                 }
             }

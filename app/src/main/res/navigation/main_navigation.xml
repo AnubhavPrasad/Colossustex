@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/spinningMillOfIndia"
-        android:name="com.example.colossustex.SpinningMillOfIndia.SpinningMillOfIndia"
+        android:name="com.example.colossustex.SpinningMillOfIndia.MainPage.SpinningMillOfIndia"
         android:label="fragment_spinning_mill_of_india"
         tools:layout="@layout/fragment_spinning_mill_of_india" >
         <action

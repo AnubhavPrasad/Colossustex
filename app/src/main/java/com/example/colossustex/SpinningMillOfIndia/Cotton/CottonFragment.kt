@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -68,8 +67,6 @@ class CottonFragment : Fragment() {
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                searchView.clearFocus()
-                onQueryTextChange(query)
                 return false
             }
 
@@ -83,13 +80,12 @@ class CottonFragment : Fragment() {
                         newlist.add(data)
                     }
                 }
-                if(newlist.isEmpty()){
-                    binding.recyclerId.visibility=View.GONE
-                    binding.resultsId.visibility=View.VISIBLE
-                }
-                else {
-                    binding.resultsId.visibility=View.GONE
-                    binding.recyclerId.visibility=View.VISIBLE
+                if (newlist.isEmpty()) {
+                    binding.recyclerId.visibility = View.GONE
+                    binding.resultsId.visibility = View.VISIBLE
+                } else {
+                    binding.resultsId.visibility = View.GONE
+                    binding.recyclerId.visibility = View.VISIBLE
                     binding.recyclerId.adapter = CottonAdapter(newlist)
                 }
                 return true

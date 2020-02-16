@@ -1,4 +1,4 @@
-package com.example.colossustex.SpinningMillOfIndia
+package com.example.colossustex.SpinningMillOfIndia.MainPage
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
 import com.example.colossustex.databinding.ViscoseFragment1Binding
-import com.example.dialogcustom.MyAdapter
+import com.example.dialogcustom.SpinnerDialogAdapter
+
+lateinit var dialog: Dialog
 
 class ViscoseFragment : Fragment() {
     lateinit var list: MutableList<Int>
@@ -30,9 +32,13 @@ class ViscoseFragment : Fragment() {
             list.add(i)
         }
         binding = DataBindingUtil.inflate(inflater, R.layout.viscose_fragment1, container, false)
-
+        dialog = Dialog(context!!)
+        dialog.setContentView(R.layout.viscose_dialog)
+        val recycler = dialog.findViewById<RecyclerView>(R.id.viscose_recycler)
+        recycler.layoutManager = GridLayoutManager(context, 4)
+        recycler.adapter = SpinnerDialogAdapter(list)
+        dialog.create()
         binding.spinnerViscose.setOnClickListener {
-
             showdialog()
         } //Call for dialog function
 
@@ -134,15 +140,9 @@ class ViscoseFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun showdialog() {
-        val dialog = Dialog(context!!)
-        dialog.setContentView(R.layout.viscose_dialog)
-        dialog.create()
-        val recycler = dialog.findViewById<RecyclerView>(R.id.viscose_recycler)
-        recycler.layoutManager = GridLayoutManager(context, 4)
-        recycler.adapter = MyAdapter(list)
+
         dialog.show()
 
     }   //Function to show dialog 1
-
 
 }

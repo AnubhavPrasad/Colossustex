@@ -10,10 +10,9 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
-import org.w3c.dom.Text
 
-class MyAdapter(val list: MutableList<Int>) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class SpinnerDialogAdapter(val list: MutableList<Int>) :
+    RecyclerView.Adapter<SpinnerDialogAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
         val text = itemview.findViewById<TextView>(R.id.viscose_recycler_text)
@@ -32,17 +31,28 @@ class MyAdapter(val list: MutableList<Int>) :
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.text.text = list[position].toString()
-        val dialog=Dialog(holder.itemView.context)
-        dialog.setContentView(R.layout.viscose_dialog2)
-        dialog.create()
+        val dialog2 = Dialog(holder.itemView.context)
+        dialog2.setContentView(R.layout.viscose_dialog2)
+        dialog2.create()
         holder.itemView.setOnClickListener {
-            dialog.show()
-            dialog.findViewById<TextView>(R.id.single).setOnClickListener {
-                Toast.makeText(holder.itemView.context,"${list[position]} Single",Toast.LENGTH_SHORT).show()
+            dialog2.show()
+            dialog2.findViewById<TextView>(R.id.single).setOnClickListener {
+                Toast.makeText(
+                    holder.itemView.context,
+                    "${list[position]} Single",
+                    Toast.LENGTH_SHORT
+                ).show()
+                dialog2.dismiss()
             }
-            dialog.findViewById<TextView>(R.id.double_text).setOnClickListener {
-                Toast.makeText(holder.itemView.context,"${list[position]} Double",Toast.LENGTH_SHORT).show()
+            dialog2.findViewById<TextView>(R.id.double_text).setOnClickListener {
+                Toast.makeText(
+                    holder.itemView.context,
+                    "${list[position]} Double",
+                    Toast.LENGTH_SHORT
+                ).show()
+                dialog2.dismiss()
             }
-        }
+        }   //Show dialog2
+
     }
 }       //Adapter for the recyclerview in dialog

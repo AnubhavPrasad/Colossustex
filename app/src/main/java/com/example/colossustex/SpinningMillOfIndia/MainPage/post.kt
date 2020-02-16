@@ -1,4 +1,4 @@
-package com.example.colossustex.SpinningMillOfIndia
+package com.example.colossustex.SpinningMillOfIndia.MainPage
 
 data class post (
 
