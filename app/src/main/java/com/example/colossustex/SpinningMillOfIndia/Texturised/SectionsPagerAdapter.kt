@@ -1,25 +1,23 @@
-package com.example.colossustex.SpinningMillOfIndia.Viscose
+package com.example.colossustex.SpinningMillOfIndia.Texturised
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.colossustex.SpinningMillOfIndia.Viscose.MillsListFragment
 
 private val TAB_TITLES = arrayOf(
-    "SEARCH",
-    "ALL MILLS"
+    "Search Mills","ALL MILLS"
 )
 
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
         var fragment: Fragment? = null
         when (position) {
-            0 -> fragment = ViscoseFragment()
-            1 -> fragment = MillsListFragment()
+            0 -> fragment = TexturisedFragment1()
+            1->fragment=MillsListFragment()
         }
         return fragment!!
     }
@@ -29,6 +27,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     }
 
     override fun getCount(): Int {
+        // Show 2 total pages.
         return 2
-    }   // Show 2 total pages
+    }
 }

@@ -1,4 +1,7 @@
-package com.example.colossustex.SpinningMillOfIndia.Cotton
+package com.example.colossustex.SpinningMillOfIndia.Synthetic
+
+import com.example.colossustex.SpinningMillOfIndia.Cotton.SyntheticData
+
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -17,12 +20,12 @@ import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderLayout
 
-class CottonAdapter(var list: MutableList<SyntheticData>) :
-    RecyclerView.Adapter<CottonAdapter.MyViewHolder>() {
+class SyntheticAdapter(var list: MutableList<SyntheticData>) :
+    RecyclerView.Adapter<SyntheticAdapter.MyViewHolder>() {
     class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-        val image = itemview.findViewById<ImageView>(R.id.cotton_image)
-        val text = itemview.findViewById<TextView>(R.id.cotton_text)
-        val sliderLayout = itemview.findViewById<SliderLayout>(R.id.imageSlider)
+        val image = itemview.findViewById<ImageView>(R.id.synthetic_image)
+        val text = itemview.findViewById<TextView>(R.id.synthetic_text)
+        val sliderLayout = itemview.findViewById<SliderLayout>(R.id.synthetic_imageSlider)
 
         init {
             Log.i("Adapter", "visible2")
@@ -54,7 +57,7 @@ class CottonAdapter(var list: MutableList<SyntheticData>) :
     }   //ViewHolder
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cotton_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.synthetic_item, parent, false)
         return MyViewHolder(view)
 
     }

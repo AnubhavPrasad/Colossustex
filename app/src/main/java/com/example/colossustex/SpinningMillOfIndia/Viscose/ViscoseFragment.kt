@@ -43,21 +43,16 @@ class ViscoseFragment : Fragment() {
         } //Call for dialog function
 
         binding.vortexId.setOnClickListener {
-            binding.ringspunId.isSelected = false
             binding.ringspunId.setBackgroundResource(R.drawable.viscose_text_middle)
             binding.ringspunId.setTextColor(Color.BLACK)
             binding.openendId.setBackgroundResource(R.drawable.viscose_text_left)
             binding.openendId.setTextColor(Color.BLACK)
-            binding.openendId.isSelected = false
             Toast.makeText(context, binding.vortexId.text, Toast.LENGTH_SHORT).show()
             binding.vortexId.setBackgroundResource(R.drawable.viscose_clicked_right)
             binding.vortexId.setTextColor(Color.WHITE)
-            it.isSelected = true
 
         }
         binding.ringspunId.setOnClickListener {
-            binding.openendId.isSelected = false
-            binding.vortexId.isSelected = false
             binding.openendId.setBackgroundResource(R.drawable.viscose_text_left)
             binding.openendId.setTextColor(Color.BLACK)
             binding.vortexId.setBackgroundResource(R.drawable.viscose_text_right)
@@ -65,43 +60,33 @@ class ViscoseFragment : Fragment() {
             binding.ringspunId.setBackgroundResource(R.drawable.viscose_clicked_middle)
             binding.ringspunId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.ringspunId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
 
         }
         binding.openendId.setOnClickListener {
-            binding.ringspunId.isSelected = false
             binding.ringspunId.setBackgroundResource(R.drawable.viscose_text_middle)
             binding.ringspunId.setTextColor(Color.BLACK)
             binding.vortexId.setBackgroundResource(R.drawable.viscose_text_right)
             binding.vortexId.setTextColor(Color.BLACK)
-            binding.vortexId.isSelected = false
             binding.openendId.setBackgroundResource(R.drawable.viscose_clicked_left)
             binding.openendId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.openendId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
         }
         binding.warpId.setOnClickListener {
-            binding.weftId.isSelected = false
             binding.weftId.setBackgroundResource(R.drawable.viscose_text_right)
             binding.weftId.setTextColor(Color.BLACK)
             binding.warpId.setBackgroundResource(R.drawable.viscose_clicked_left)
             binding.warpId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.warpId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
         }
         binding.weftId.setOnClickListener {
-            binding.warpId.isSelected = false
             binding.warpId.setBackgroundResource(R.drawable.viscose_text_left)
             binding.warpId.setTextColor(Color.BLACK)
             binding.weftId.setBackgroundResource(R.drawable.viscose_clicked_right)
             binding.weftId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.weftId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
 
         }
         binding.regularId.setOnClickListener {
-            binding.dyedId.isSelected = false
-            binding.spandexId.isSelected = false
             binding.dyedId.setBackgroundResource(R.drawable.viscose_text_middle)
             binding.dyedId.setTextColor(Color.BLACK)
             binding.spandexId.setBackgroundResource(R.drawable.viscose_text_right)
@@ -109,11 +94,8 @@ class ViscoseFragment : Fragment() {
             binding.regularId.setBackgroundResource(R.drawable.viscose_clicked_left)
             binding.regularId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.regularId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
         }
         binding.dyedId.setOnClickListener {
-            binding.regularId.isSelected = false
-            binding.spandexId.isSelected = false
             binding.regularId.setBackgroundResource(R.drawable.viscose_text_left)
             binding.regularId.setTextColor(Color.BLACK)
             binding.spandexId.setBackgroundResource(R.drawable.viscose_text_middle)
@@ -121,11 +103,8 @@ class ViscoseFragment : Fragment() {
             binding.dyedId.setBackgroundResource(R.drawable.viscose_clicked_middle)
             binding.dyedId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.dyedId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
         }
         binding.spandexId.setOnClickListener {
-            binding.dyedId.isSelected = false
-            binding.regularId.isSelected = false
             binding.dyedId.setBackgroundResource(R.drawable.viscose_text_middle)
             binding.dyedId.setTextColor(Color.BLACK)
             binding.regularId.setBackgroundResource(R.drawable.viscose_text_left)
@@ -133,7 +112,6 @@ class ViscoseFragment : Fragment() {
             binding.spandexId.setBackgroundResource(R.drawable.viscose_clicked_right)
             binding.spandexId.setTextColor(Color.WHITE)
             Toast.makeText(context, binding.spandexId.text, Toast.LENGTH_SHORT).show()
-            it.isSelected = true
         }
         return binding.root
     }

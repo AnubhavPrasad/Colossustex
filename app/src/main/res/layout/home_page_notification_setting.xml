@@ -28,7 +28,7 @@
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:background="?android:attr/selectableItemBackground"
-            android:drawableStart="@drawable/ic_close" />
+            android:drawableStart="@drawable/ic_close2" />
     </LinearLayout>
 
     <LinearLayout

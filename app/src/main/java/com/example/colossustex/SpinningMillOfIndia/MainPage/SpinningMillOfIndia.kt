@@ -10,10 +10,13 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.SpinningMillOfIndia.Viscose.ViscoseActivity
 import com.example.colossustex.R
+import com.example.colossustex.SpinningMillOfIndia.Fancy.FancyActivity
+import com.example.colossustex.SpinningMillOfIndia.Texturised.TexturisedActivity
 import com.google.firebase.database.*
 
 class SpinningMillOfIndia : Fragment() {
@@ -36,13 +39,22 @@ class SpinningMillOfIndia : Fragment() {
             it.findNavController().navigate(R.id.action_spinningMillOfIndia_to_cottonFragment)
         }
         val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
+        synthetic.setOnClickListener {
+            it.findNavController().navigate(R.id.action_spinningMillOfIndia_to_syntheticFragment)
+        }
         val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
         viscose.setOnClickListener {
             startActivity(Intent(context,
                 ViscoseActivity::class.java))
         }
         val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
+        texturised.setOnClickListener {
+           startActivity(Intent(context,TexturisedActivity::class.java))
+        }
         val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
+        fancy.setOnClickListener {
+            startActivity(Intent(context,FancyActivity::class.java))
+        }
         val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
         val directMillAgentsandTraders =
             lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)

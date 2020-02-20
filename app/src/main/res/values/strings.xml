@@ -28,5 +28,9 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="filter">FILTER BY STATE</string>
+    <string name="title_activity_texturised">TexturisedActivity</string>
+    <string name="apply">APPLY</string>
+    <string name="title_activity_fancy">FancyActivity</string>
 
 </resources>

@@ -11,13 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.colossustex.R
+import com.example.colossustex.SpinningMillOfIndia.Synthetic.SyntheticAdapter
 import com.example.colossustex.databinding.FragmentCottonBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class CottonFragment : Fragment() {
+class SyntheticFragment : Fragment() {
     lateinit var datalist: MutableList<SyntheticData>
     lateinit var binding: FragmentCottonBinding
     lateinit var search: SearchView
@@ -32,9 +33,10 @@ class CottonFragment : Fragment() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         datalist = mutableListOf()
         binding.toolbar.inflateMenu(R.menu.cotton_menu)
+        binding.toolbar.setTitle("Synthetic")
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.home_id -> findNavController().navigate(R.id.action_cottonFragment_to_homePage)
+                R.id.home_id -> findNavController().navigate(R.id.action_syntheticFragment_to_homePage)
 
             }
             true
@@ -56,8 +58,7 @@ class CottonFragment : Fragment() {
                         datalist.add(data!!)
                     }
                 }
-
-                binding.recyclerId.adapter = CottonAdapter(datalist)
+                binding.recyclerId.adapter = SyntheticAdapter(datalist)
             }
 
         })

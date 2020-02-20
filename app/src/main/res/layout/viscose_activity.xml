@@ -22,7 +22,7 @@
                 app:navigationIcon="@drawable/ic_arrow_back"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:title="Viscose"
-                app:titleTextColor="#FAF6F6"></androidx.appcompat.widget.Toolbar>
+                app:titleTextColor="#FAF6F6" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
